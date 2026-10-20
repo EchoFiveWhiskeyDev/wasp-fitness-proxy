@@ -10,6 +10,8 @@
     "node": ">=20"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "@apple/app-store-server-library": "3.1.0",
+    "express": "^4.19.2",
+    "firebase-admin": "13.10.0"
   }
 }
