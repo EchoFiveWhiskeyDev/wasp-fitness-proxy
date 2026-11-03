@@ -20,8 +20,8 @@ const FIREBASE_PROJECT_ID = 'wasp-fitness';
 const BUNDLE_ID = 'EchoFiveWhiskey.WASP-Fitness';
 const APP_APPLE_ID = 6814244360;
 
-// Production only. Sandbox/TestFlight requires separate configuration.
-const APPLE_ENVIRONMENT = Environment.PRODUCTION;
+// Sandbox only. Never deploy this branch to the production service.
+const APPLE_ENVIRONMENT = Environment.SANDBOX;
 
 const PRODUCT_IDS = new Set([
     'WASP_Elite_Monthly',
