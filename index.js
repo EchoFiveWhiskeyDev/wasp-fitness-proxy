@@ -192,6 +192,19 @@ async function authorize(req, res, next) {
     }
 
     if (!sandboxUIDs.has(identity.uid)) {
+        // Temporary diagnostics. Never log raw UIDs or credentials.
+        const fingerprint = value =>
+            createHash('sha256')
+                .update(value, 'utf8')
+                .digest('hex')
+                .slice(0, 12);
+
+        console.warn('Sandbox allowlist mismatch', {
+            authenticatedAccount: fingerprint(identity.uid),
+            approvedAccountCount: sandboxUIDs.size,
+            approvedAccounts: [...sandboxUIDs].map(fingerprint),
+        });
+
         return reject(res, 403, 'sandbox_account_not_allowed');
     }
 
